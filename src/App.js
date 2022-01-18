@@ -1,11 +1,13 @@
+import React from 'react';
 import './App.css';
+import Nav from './components/nav';
+import Footer from './components/footer';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Bookstore</h1>
-    </div>
-  );
-}
+const App = () => (
+  <div className="container">
+    <Nav />
+    <Footer />
+  </div>
+);
 
 export default App;
