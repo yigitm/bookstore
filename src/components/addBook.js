@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
 import { v4 as uuid } from 'uuid';
 
-const Form = () => {
+const AddBook = () => {
   const dispatch = useDispatch();
 
   const submitBookToStore = (e) => {
@@ -35,4 +35,4 @@ const Form = () => {
     </div>
   );
 };
-export default Form;
+export default AddBook;
