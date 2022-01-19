@@ -10,16 +10,14 @@ const Booklist = () => {
     dispatch(delBook(e.target.parentElement.id));
   };
 
-  const displayB = books.map((book) => {
-    return (
-      <div key={book.id} id={book.id} className="book">
-        <p>{book.title}</p>
-        <button type="button" onClick={(e) => removeBook(e)}>
-          Remove
-        </button>
-      </div>
-    );
-  });
+  const displayB = books.map((book) => (
+    <div key={book.id} id={book.id} className="book">
+      <p>{book.title}</p>
+      <button type="button" onClick={(e) => removeBook(e)}>
+        Remove
+      </button>
+    </div>
+  ));
 
   return displayB;
 };
