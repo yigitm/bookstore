@@ -1,11 +1,11 @@
 import React from 'react';
-import Form from './form';
 import Booklist from './bookList';
+import AddBook from './addBook';
 
 const Books = () => (
   <main>
     <Booklist />
-    <Form />
+    <AddBook />
   </main>
 );
 export default Books;
