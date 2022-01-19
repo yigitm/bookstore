@@ -1,13 +1,19 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
+import { v4 as uuid } from 'uuid';
 
 const Form = () => {
   const dispatch = useDispatch();
 
   const submitBookToStore = (e) => {
     e.preventDefault();
-    dispatch(addBook());
+    const form = document.getElementsByTagName('form')[0];
+    const newBook = {
+      id: uuid(),
+      title: form.firstChild.value,
+    };
+    dispatch(addBook(newBook));
   };
 
   return (
