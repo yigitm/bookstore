@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { addBook } from '../redux/books/books';
@@ -22,8 +21,8 @@ const AddBook = () => {
     e.preventDefault();
     const newBook = {
       id: uuid(),
-      title: title,
-      author: author,
+      title,
+      author,
     };
     dispatch(addBook(newBook));
     setTitle('');
