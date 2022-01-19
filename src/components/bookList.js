@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 
 const Booklist = () => {
   const books = useSelector((state) => state.booksReducer);
-  const displayB = books.map((item) => {
+  const displayB = books.map((book) => {
     return (
-      <div className="book">
-        <p>{item.title}</p>
+      <div key={book.id} className="book">
+        <p>{book.title}</p>
         <button type="button">Remove</button>
       </div>
     );
