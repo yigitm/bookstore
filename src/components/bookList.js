@@ -1,19 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const Booklist = () => (
-  <section>
+const Booklist = () => {
+  const books = useSelector((state) => state.booksReducer);
+
+  return (
     <div className="book">
-      <p>Book-1</p>
+      <p>{books}</p>
       <button type="button">Remove</button>
     </div>
-    <div className="book">
-      <p>Book-2</p>
-      <button type="button">Remove</button>
-    </div>
-    <div className="book">
-      <p>Book-3</p>
-      <button type="button">Remove</button>
-    </div>
-  </section>
-);
+  );
+};
 export default Booklist;
