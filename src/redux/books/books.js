@@ -3,11 +3,10 @@ const DEL_BOOK = 'bookStore/books/DEL_BOOK';
 const GET_BOOK = 'bookStore/books/GET_BOOK';
 
 const initialState = [];
-const baseUrl =
-  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 const apiKey = 'q6TnZOqYafHfqHGMUnQA/books/';
 
-export const postBook = (newBook) => async (payload) => {
+export const postBook = (newBook) => async () => {
   await fetch(baseUrl + apiKey, {
     method: 'POST',
     headers: { 'Content-type': 'application/json' },
