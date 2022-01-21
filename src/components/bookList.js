@@ -19,7 +19,6 @@ const Booklist = () => {
       </button>
     </div>
   ));
-
   return displayB;
 };
 export default Booklist;
