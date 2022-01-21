@@ -11,15 +11,13 @@ const Booklist = () => {
   };
 
   const displayB = books.map((book) => (
-    <div key={book.id} id={book.id} className="book">
+    <div key={book.item_id} id={book.item_id} className="book">
       <p>{book.title}</p>
-      <p>{book.author}</p>
       <button type="button" onClick={(e) => removeBook(e)}>
         Remove
       </button>
     </div>
   ));
-
   return displayB;
 };
 export default Booklist;

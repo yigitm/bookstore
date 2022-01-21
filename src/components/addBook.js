@@ -4,29 +4,22 @@ import { v4 as uuid } from 'uuid';
 import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
 
-  const handleAuthorChange = (e) => {
-    setAuthor(e.target.value);
-  };
-
-  const dispatch = useDispatch();
-
   const submitBookToStore = (e) => {
     e.preventDefault();
     const newBook = {
-      id: uuid(),
+      item_id: uuid(),
       title,
-      author,
+      category: 'Fiction',
     };
     dispatch(addBook(newBook));
     setTitle('');
-    setAuthor('');
   };
 
   return (
@@ -39,13 +32,6 @@ const AddBook = () => {
           placeholder="Title"
           value={title}
           onChange={handleTitleChange}
-        />
-        <input
-          type="text"
-          name="book"
-          placeholder="Author"
-          value={author}
-          onChange={handleAuthorChange}
         />
         <select>
           <option value="Category-1">Category-1</option>
