@@ -9,7 +9,7 @@ const Booklist = () => {
   const removeBook = (e) => {
     dispatch(delBook(e.target.parentElement.id));
   };
-  console.log('öncesi');
+
   const displayB = books.map((book) => (
     <div key={book.item_id} id={book.item_id} className="book">
       <p>{book.title}</p>

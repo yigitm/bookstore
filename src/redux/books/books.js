@@ -4,22 +4,25 @@ const GET_BOOK = 'bookStore/books/GET_BOOK';
 
 const initialState = [];
 const baseUrl =
-  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/q6TnZOqYafHfqHGMUnQA/books';
+  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/q6TnZOqYafHfqHGMUnQA/books/';
 
-export const addBook = (book) => async (dispatch) => {
-  await postBook(book);
-  dispatch({
+export const addBook = (payload) => async (state) => {
+  await postBook(payload);
+  state({
     type: ADD_BOOK,
-    payload: book,
+    payload: payload,
   });
 };
 
-export const delBook = (payload) => ({
-  type: DEL_BOOK,
-  payload,
-});
+export const delBook = (payload) => async (state) => {
+  await deleteBook(payload);
+  state({
+    type: DEL_BOOK,
+    payload,
+  });
+};
 
-export const getBooks = async (dispatch) => {
+export const getBooks = async (state) => {
   const response = await fetch(baseUrl);
   const convert = await response.json();
   const data = await convert;
@@ -33,14 +36,14 @@ export const getBooks = async (dispatch) => {
     };
     books.push(singleBook);
   }
-  dispatch({
+  state({
     type: GET_BOOK,
     payload: books,
   });
 };
 //{"880029fd-2bff-4450-828b-b7e58e339656":[{"category":"Fiction","title":"The Great Gatsby"}],"f52bdd04-83bf-4b66-beb2-ddd60eeb9251":[{"category":"Fiction","title":"The Great Gatsby"}],"8d8b424b-464f-4706-9051-d54136719cfd":[{"title":"The Great Gatsby","category":"Fiction"}]}
 export const postBook = async (payload) => {
-  const response = await fetch(baseUrl, {
+  await fetch(baseUrl, {
     method: 'POST',
     headers: { 'Content-type': 'application/json' },
     body: JSON.stringify({
@@ -49,7 +52,16 @@ export const postBook = async (payload) => {
       category: 'Fiction',
     }),
   });
-  return response;
+};
+
+export const deleteBook = async (item_id) => {
+  await fetch(baseUrl + item_id, {
+    method: 'DELETE',
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify({
+      item_id: item_id,
+    }),
+  });
 };
 
 const booksReducer = (state = initialState, action) => {

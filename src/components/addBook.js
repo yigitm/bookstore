@@ -22,10 +22,6 @@ const AddBook = () => {
     setTitle('');
   };
 
-  const apiCall = () => {
-    dispatch(getBooks(dispatch));
-  };
-
   return (
     <div>
       <h2>ADD NEW BOOK</h2>
@@ -47,9 +43,6 @@ const AddBook = () => {
           value="Submit"
           onClick={(e) => submitBookToStore(e)}
         />
-        <button type="button" onClick={(e) => apiCall(e)}>
-          API
-        </button>
       </form>
     </div>
   );
