@@ -6,7 +6,7 @@
 
 > This application consist of implementing; React & Redux for state management by displaying data with an API using asynchronous GET/POST/DELETE actions.
 
-![screenshot](./app.gif)
+![screenshot](): : Will be added soon...
 
 > For Connecting & managing asynchronous calls; Thunk middleware is used.
 
