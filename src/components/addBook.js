@@ -25,7 +25,7 @@ const AddBook = () => {
 
   return (
     <div>
-      <h2 className={styles['title']}>ADD NEW BOOK</h2>
+      <h2 className={styles.title}>ADD NEW BOOK</h2>
       <form>
         <input
           type="text"
@@ -35,7 +35,7 @@ const AddBook = () => {
           className={styles['book-title']}
           onChange={handleTitleChange}
         />
-        <select className={styles['category']}>
+        <select className={styles.category}>
           <option value="Category-1">Category-1</option>
           <option value="Category-2">Category-2</option>
           <option value="Category-3">Category-3</option>
