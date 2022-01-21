@@ -1,34 +1,25 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
-import { addBook, getBooks } from '../redux/books/books';
+import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-
-  const books = useSelector((state) => state.booksReducer);
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
 
-  const handleAuthorChange = (e) => {
-    setAuthor(e.target.value);
-  };
-
-  const dispatch = useDispatch();
-
   const submitBookToStore = (e) => {
     e.preventDefault();
     const newBook = {
-      id: uuid(),
-      title,
-      author,
+      item_id: uuid(),
+      title: title,
+      category: 'Fiction',
     };
     dispatch(addBook(newBook));
     setTitle('');
-    setAuthor('');
   };
 
   const apiCall = () => {
@@ -45,13 +36,6 @@ const AddBook = () => {
           placeholder="Title"
           value={title}
           onChange={handleTitleChange}
-        />
-        <input
-          type="text"
-          name="book"
-          placeholder="Author"
-          value={author}
-          onChange={handleAuthorChange}
         />
         <select>
           <option value="Category-1">Category-1</option>

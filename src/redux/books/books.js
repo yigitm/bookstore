@@ -6,10 +6,13 @@ const initialState = [];
 const baseUrl =
   'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/q6TnZOqYafHfqHGMUnQA/books';
 
-export const addBook = (payload) => ({
-  type: ADD_BOOK,
-  payload,
-});
+export const addBook = (book) => async (dispatch) => {
+  await postBook(book);
+  dispatch({
+    type: ADD_BOOK,
+    payload: book,
+  });
+};
 
 export const delBook = (payload) => ({
   type: DEL_BOOK,
@@ -24,19 +27,31 @@ export const getBooks = async (dispatch) => {
   const keys = Object.keys(data);
   for (let i = 0; i < keys.length; i++) {
     const singleBook = {
-      id: keys[i],
+      item_id: keys[i],
       title: data[keys[i]][0].title,
-      author: 'Author',
+      category: 'Fiction',
     };
     books.push(singleBook);
   }
-
   dispatch({
     type: GET_BOOK,
     payload: books,
   });
 };
 //{"880029fd-2bff-4450-828b-b7e58e339656":[{"category":"Fiction","title":"The Great Gatsby"}],"f52bdd04-83bf-4b66-beb2-ddd60eeb9251":[{"category":"Fiction","title":"The Great Gatsby"}],"8d8b424b-464f-4706-9051-d54136719cfd":[{"title":"The Great Gatsby","category":"Fiction"}]}
+export const postBook = async (payload) => {
+  const response = await fetch(baseUrl, {
+    method: 'POST',
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify({
+      item_id: payload.item_id,
+      title: payload.title,
+      category: 'Fiction',
+    }),
+  });
+  return response;
+};
+
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
