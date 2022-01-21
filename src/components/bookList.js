@@ -8,6 +8,7 @@ const Booklist = () => {
 
   const removeBook = (e) => {
     dispatch(delBook(e.target.parentElement.id));
+    e.target.parentElement.remove();
   };
 
   const displayB = books.map((book) => (

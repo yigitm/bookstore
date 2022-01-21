@@ -15,7 +15,7 @@ const AddBook = () => {
     e.preventDefault();
     const newBook = {
       item_id: uuid(),
-      title: title,
+      title,
       category: 'Fiction',
     };
     dispatch(addBook(newBook));

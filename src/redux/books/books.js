@@ -3,14 +3,36 @@ const DEL_BOOK = 'bookStore/books/DEL_BOOK';
 const GET_BOOK = 'bookStore/books/GET_BOOK';
 
 const initialState = [];
-const baseUrl =
-  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/q6TnZOqYafHfqHGMUnQA/books/';
+const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+const apiKey = 'q6TnZOqYafHfqHGMUnQA/books/';
+
+export const postBook = async (payload) => {
+  await fetch(baseUrl + apiKey, {
+    method: 'POST',
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify({
+      item_id: payload.item_id,
+      title: payload.title,
+      category: 'Fiction',
+    }),
+  });
+};
 
 export const addBook = (payload) => async (state) => {
   await postBook(payload);
   state({
     type: ADD_BOOK,
-    payload: payload,
+    payload,
+  });
+};
+
+export const deleteBook = async (itemId) => {
+  await fetch(baseUrl + apiKey + itemId, {
+    method: 'DELETE',
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify({
+      itemId,
+    }),
   });
 };
 
@@ -23,12 +45,12 @@ export const delBook = (payload) => async (state) => {
 };
 
 export const getBooks = async (state) => {
-  const response = await fetch(baseUrl);
+  const response = await fetch(baseUrl + apiKey);
   const convert = await response.json();
   const data = await convert;
   const books = [];
   const keys = Object.keys(data);
-  for (let i = 0; i < keys.length; i++) {
+  for (let i = 0; i < keys.length; i += 1) {
     const singleBook = {
       item_id: keys[i],
       title: data[keys[i]][0].title,
@@ -39,28 +61,6 @@ export const getBooks = async (state) => {
   state({
     type: GET_BOOK,
     payload: books,
-  });
-};
-//{"880029fd-2bff-4450-828b-b7e58e339656":[{"category":"Fiction","title":"The Great Gatsby"}],"f52bdd04-83bf-4b66-beb2-ddd60eeb9251":[{"category":"Fiction","title":"The Great Gatsby"}],"8d8b424b-464f-4706-9051-d54136719cfd":[{"title":"The Great Gatsby","category":"Fiction"}]}
-export const postBook = async (payload) => {
-  await fetch(baseUrl, {
-    method: 'POST',
-    headers: { 'Content-type': 'application/json' },
-    body: JSON.stringify({
-      item_id: payload.item_id,
-      title: payload.title,
-      category: 'Fiction',
-    }),
-  });
-};
-
-export const deleteBook = async (item_id) => {
-  await fetch(baseUrl + item_id, {
-    method: 'DELETE',
-    headers: { 'Content-type': 'application/json' },
-    body: JSON.stringify({
-      item_id: item_id,
-    }),
   });
 };
 
