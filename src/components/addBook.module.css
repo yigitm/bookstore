@@ -1,0 +1,61 @@
+.title {
+  text-align: left;
+  margin-left: 6.3%;
+  font-size: 1.25rem;
+  font-weight: bolder;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
+.Rectangle-2 {
+  width: 20%;
+  padding: 0.9rem;
+}
+
+.remove-button {
+  width: 23%;
+  margin-right: 10%;
+  padding: 0.5rem;
+}
+
+.Rectangle-2,
+.remove-button {
+  border-radius: 3px;
+  border-color: #888;
+  font-size: 0.813rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #fff;
+  background-color: #0290ff;
+}
+
+.book-title {
+  width: 40%;
+}
+
+.category {
+  width: 20%;
+}
+
+.book-title,
+.category {
+  margin-right: 3%;
+  padding: 0.7rem;
+  border: 1px solid rgb(201, 197, 197);
+  border-radius: 3px;
+  border-color: #888;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.15px;
+  color: rgb(156, 152, 152);
+}

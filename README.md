@@ -6,7 +6,7 @@
 
 > This application consist of implementing; React & Redux for state management by displaying data with an API using asynchronous GET/POST/DELETE actions.
 
-![screenshot](): : Will be added soon...
+![App_Gif](./src/images/app.gif);
 
 > For Connecting & managing asynchronous calls; Thunk middleware is used.
 
@@ -19,7 +19,7 @@
 
 ## Live Demo
 
-[Live Demo Link]() : Will be added soon...
+[Live Demo Link](https://yigitm.github.io/bookstore)
 
 ## Getting Started
 
@@ -57,7 +57,7 @@ To install the necessary Javascript packages to your project, run below commands
 npm install
 ```
 
-To run the app, run below commands.
+To run the app, use below command.
 
 ```
 npm start
