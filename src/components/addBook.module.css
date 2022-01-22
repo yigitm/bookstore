@@ -1,6 +1,6 @@
 .title {
-  text-align: center;
-  margin-right: 48%;
+  text-align: left;
+  margin-left: 6.3%;
   font-size: 1.25rem;
   font-weight: bolder;
   font-stretch: normal;
@@ -11,12 +11,13 @@
 }
 
 .Rectangle-2 {
-  width: 10%;
+  width: 20%;
   padding: 0.9rem;
 }
 
 .remove-button {
-  width: 15%;
+  width: 23%;
+  margin-right: 10%;
   padding: 0.5rem;
 }
 
@@ -35,12 +36,19 @@
   background-color: #0290ff;
 }
 
-.book-title,
+.book-title {
+  width: 40%;
+}
+
 .category {
   width: 20%;
+}
+
+.book-title,
+.category {
   margin-right: 3%;
   padding: 0.7rem;
-  border: solid 1px;
+  border: 1px solid rgb(201, 197, 197);
   border-radius: 3px;
   border-color: #888;
   font-size: 1rem;

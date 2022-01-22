@@ -14,6 +14,10 @@ const Booklist = () => {
   const displayB = books.map((book) => (
     <div key={book.item_id} id={book.item_id} className="book">
       <p>{book.title}</p>
+      <p className="circle">
+        <span className="range">0%</span>
+        <span className="completed">Completed</span>
+      </p>
       <button
         className={styles['remove-button']}
         type="button"

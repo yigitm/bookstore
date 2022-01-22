@@ -18,8 +18,9 @@ section,
 }
 
 nav {
+  margin-left: 6.3%;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .nav-items {
@@ -37,6 +38,10 @@ ul li {
   list-style: none;
 }
 
+i {
+  margin-right: 6.8%;
+}
+
 .fas .fa-user {
   justify-self: flex-end;
 }
@@ -46,8 +51,11 @@ a {
 }
 
 main {
-  background-color: rgb(241, 234, 234);
   text-align: center;
+  border-top: 1px solid #888;
+  border-radius: 3px;
+  background-color: rgba(228, 211, 211, 0.198);
+  text-decoration-color: ;
 }
 
 form {
@@ -66,18 +74,47 @@ button {
 
 .book {
   margin: 1rem auto;
-  width: 57%;
+  width: 87%;
   height: 15%;
+  align-items: center;
+  justify-content: space-between;
   font-size: 1.25rem;
   font-weight: bolder;
   text-align: center;
   text-transform: uppercase;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 1px solid rgb(201, 197, 197);
+}
+
+.book > p {
+  margin-left: 1.5%;
+}
+
+.form,
+.book {
+  border: 1px solid #888;
+  border-radius: 3px;
 }
 
 footer {
   padding: 2em;
   text-align: center;
+}
+
+.circle {
+  width: 3rem;
+  height: 3rem;
+  border: solid 5px rgb(192, 191, 191);
+  border-radius: 50%;
+}
+
+.range {
+  position: relative;
+  margin: 5rem;
+}
+
+.completed {
+  position: absolute;
+  margin-left: 3%;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  color: #888;
 }
