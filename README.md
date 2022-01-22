@@ -19,7 +19,7 @@
 
 ## Live Demo
 
-[Live Demo Link]() : Will be added soon...
+[Live Demo Link](https://yigitm.github.io/bookstore)
 
 ## Getting Started
 
